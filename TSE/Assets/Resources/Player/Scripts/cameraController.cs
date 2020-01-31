@@ -14,7 +14,7 @@ public class cameraController : MonoBehaviour
 
     float cameraMagnitude;
     Vector3 cameraPosLocal;
-
+    
     [Range(0.0f, 5.0f)]
     public float camDistY;
     [Range(0.0f, 5.0f)]
@@ -23,7 +23,6 @@ public class cameraController : MonoBehaviour
 
     Camera cam;
     GameObject cameraOrigin;
-    SphereCollider itemChecker;
 
 
 

@@ -22,8 +22,8 @@ public class playerController : MonoBehaviour
 
     GameObject legSocket;
     GameObject headSocket;
-    GameObject larmSocket;
-    GameObject rarmSocket;
+    GameObject lArmSocket;
+    GameObject rArmSocket;
     GameObject curHead;
     GameObject curLeg;
     GameObject curLArm;
@@ -40,8 +40,8 @@ public class playerController : MonoBehaviour
         itemChecker = player.GetComponent<SphereCollider>();
         legSocket = player.transform.Find("LegSnapPoint").gameObject;
         headSocket = player.transform.Find("HeadSnapPoint").gameObject;
-        larmSocket = player.transform.Find("LeftArmSnapPoint").gameObject;
-        rarmSocket = player.transform.Find("RightArmSnapPoint").gameObject;
+        lArmSocket = player.transform.Find("LeftArmSnapPoint").gameObject;
+        rArmSocket = player.transform.Find("RightArmSnapPoint").gameObject;
         Object[] prefabs = Resources.LoadAll("Player/Robot/Parts", typeof(GameObject));
         foreach (Object o in prefabs)
         {
@@ -88,9 +88,14 @@ public class playerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q)&&hasHead == true)
         {
             Debug.Log(curHead.name);
-            GameObject tmp = Instantiate(attachments.Find(x => x.name == curHead.name), curHead.transform.position, curHead.transform.rotation);
-            tmp.name = curHead.name;
+            Vector3 tmpPos = curHead.transform.position;
+            Quaternion tmpRot = curHead.transform.rotation;
+            GameObject tmpObj = attachments.Find(x => x.name == curHead.name);
+            string tmpName = curHead.name;
             Destroy(curHead);
+            GameObject tmp = Instantiate(tmpObj, tmpPos + new Vector3(0.0f,0.1f,0.0f), tmpRot);
+            tmp.name = tmpName;
+            tmp.GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(Random.Range(-100f, 100f), 100f, Random.Range(-100f, 100f)), new Vector3(Random.Range(-1,1), Random.Range(-1, 1), Random.Range(-1, 1)));
             hasHead = false;
             curHead = null;
         }
@@ -125,10 +130,10 @@ public class playerController : MonoBehaviour
         }
         if (itemType == "larm")
         {
-            GameObject tmp = Instantiate(attachments.Find(x => x.name == item.name), larmSocket.transform.position, larmSocket.transform.rotation);
+            GameObject tmp = Instantiate(attachments.Find(x => x.name == item.name), lArmSocket.transform.position, lArmSocket.transform.rotation);
             tmp.name = item.name;
             Destroy(tmp.GetComponent<Rigidbody>());
-            tmp.transform.parent = larmSocket.transform;
+            tmp.transform.parent = lArmSocket.transform;
             nearItems.Remove(item);
             Destroy(item);
             hasLArm = true;
@@ -136,10 +141,10 @@ public class playerController : MonoBehaviour
         }
         if (itemType == "rarm")
         {
-            GameObject tmp = Instantiate(attachments.Find(x => x.name == item.name), rarmSocket.transform.position, rarmSocket.transform.rotation);
+            GameObject tmp = Instantiate(attachments.Find(x => x.name == item.name), rArmSocket.transform.position, rArmSocket.transform.rotation);
             tmp.name = item.name;
             Destroy(tmp.GetComponent<Rigidbody>());
-            tmp.transform.parent = rarmSocket.transform;
+            tmp.transform.parent = rArmSocket.transform;
             nearItems.Remove(item);
             Destroy(item);
             hasRArm = true;
