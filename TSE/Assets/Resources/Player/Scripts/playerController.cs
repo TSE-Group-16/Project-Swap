@@ -64,6 +64,7 @@ public class playerController : MonoBehaviour
         //{
         //    Debug.Log(c.name);
         //}
+        
         if (!isFrozen)
         {
             if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit)
@@ -109,7 +110,7 @@ public class playerController : MonoBehaviour
             camCont.isFrozen = false;
             isFrozen = false;
         }
-
+        player.transform.eulerAngles = new Vector3(0, player.transform.rotation.eulerAngles.y, 0);
     }
 
     public void dropHead()
@@ -191,6 +192,7 @@ public class playerController : MonoBehaviour
         }
         if (itemType == "leg" && hasLeg == false)
         {
+            
             GameObject tmp = Instantiate(attachments.Find(x => x.name == item.name), legSocket.transform.position, legSocket.transform.rotation);
             tmp.name = item.name;
             Destroy(tmp.GetComponent<Rigidbody>());
@@ -199,6 +201,7 @@ public class playerController : MonoBehaviour
             Destroy(item);
             hasLeg = true;
             curLeg = tmp;
+            player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z);
         }
         if (itemType == "arm")
         {

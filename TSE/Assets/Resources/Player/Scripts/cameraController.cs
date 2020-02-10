@@ -74,13 +74,13 @@ public class cameraController : MonoBehaviour
 
             if (dir > 0f)
             {
-                if (difference > 2.0f)
+                if (difference > 2.0f && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
                 {
                     rotator = playerRotateRight(difference);
                     StartCoroutine(rotator);
                 }
             }
-            else if (dir < 0f )
+            else if (dir < 0f && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
             {
                 if (difference > 2.0f)
                 {
