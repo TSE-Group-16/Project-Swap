@@ -12,8 +12,8 @@ public class playerController : MonoBehaviour
     public float speedLimit;
 
     bool hasLeg;
-    bool hasLArm;
-    bool hasRArm;
+    public bool hasLArm;
+    public bool hasRArm;
     bool hasHead;
     bool isFrozen;
 

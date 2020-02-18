@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - bodypart
+  - ladder
   layers:
   - Default
   - TransparentFX
