@@ -10,12 +10,15 @@ public class playerController : MonoBehaviour
 
     public float speed;
     public float speedLimit;
+    public float jumpForce;
 
     bool hasLeg;
     public bool hasLArm;
     public bool hasRArm;
     bool hasHead;
     bool isFrozen;
+    bool isJumping = false;
+    public bool isGrounded = false;
 
 
     List<GameObject> nearItems = new List<GameObject>();
@@ -42,6 +45,7 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //initialise variables
         player = this.GetComponent<Rigidbody>();
         camCont = cameraObj.GetComponent<cameraController>();
         itemChecker = player.GetComponent<SphereCollider>();
@@ -50,6 +54,7 @@ public class playerController : MonoBehaviour
         lArmSocket = player.transform.Find("LeftArmSnapPoint").gameObject;
         rArmSocket = player.transform.Find("RightArmSnapPoint").gameObject;
         radialMenu.SetActive(false);
+        //load all body parts into an array to instantiate them when needed
         Object[] prefabs = Resources.LoadAll("Player/Robot/Parts", typeof(GameObject));
         foreach (Object o in prefabs)
         {
@@ -60,11 +65,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //foreach (GameObject c in nearItems)
-        //{
-        //    Debug.Log(c.name);
-        //}
-        
+        //check if player is frozen e.g. when menu is open
         if (!isFrozen)
         {
             if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit)
@@ -87,14 +88,30 @@ public class playerController : MonoBehaviour
                 player.AddForce(player.transform.right * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
+            if (Input.GetKeyDown(KeyCode.Space) && hasLeg && curLeg.GetComponent<ILegpart>().canJump() && !isJumping)
+            {
+                player.AddForce(player.transform.up * jumpForce);
+                isJumping = true;
+            }
 
+
+            //!!!!!grounded not working yet!!!!!
+            if (isJumping && isGrounded)
+            {
+                isJumping = false;
+            }
+
+            //pick up nearest item
             if (Input.GetKeyDown(KeyCode.E) && nearItems.Count != 0)
             {
                 Debug.Log("Equiped: " + nearItems[0].name);
                 equip(nearItems[0]);
 
             }
+
+            Debug.Log(isGrounded + "," + isJumping);
         }
+        //open and close drop menu
         if(Input.GetKeyDown(KeyCode.Q))
         {
             radialMenu.SetActive(true);
@@ -110,9 +127,12 @@ public class playerController : MonoBehaviour
             camCont.isFrozen = false;
             isFrozen = false;
         }
+
+        //reset player's x and z rotation
         player.transform.eulerAngles = new Vector3(0, player.transform.rotation.eulerAngles.y, 0);
     }
 
+    //drop functions
     public void dropHead()
     {
         Debug.Log(curHead.name);
@@ -174,7 +194,7 @@ public class playerController : MonoBehaviour
     }
 
 
-
+    //equip item
     void equip(GameObject item)
     {
         string itemType = item.GetComponent<IBodypart>().GetBodyType();
@@ -202,6 +222,11 @@ public class playerController : MonoBehaviour
             hasLeg = true;
             curLeg = tmp;
             player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z);
+
+            if(curLeg.GetComponent<ILegpart>().canJump())
+            {
+                curLeg.GetComponentInChildren<BoxCollider>().enabled = true;
+            }
         }
         if (itemType == "arm")
         {
@@ -232,13 +257,15 @@ public class playerController : MonoBehaviour
 
     }
 
-
+    //check for nearby body parts
     private void OnTriggerEnter(Collider other)
     {
         if (!nearItems.Contains(other.gameObject) && other.tag == "bodypart")
         {
             nearItems.Add(other.gameObject);
         }
+
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -249,6 +276,7 @@ public class playerController : MonoBehaviour
         }
     }
 
+    //getter functions
     public GameObject getCurHead()
     {
         return curHead;

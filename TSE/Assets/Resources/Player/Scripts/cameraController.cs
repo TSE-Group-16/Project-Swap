@@ -31,6 +31,7 @@ public class cameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //initialise variables
         Cursor.lockState = CursorLockMode.Locked;
         cam = this.transform.Find("CameraOrigin").Find("Main Camera").GetComponent<Camera>();
         cameraOrigin = this.transform.Find("CameraOrigin").gameObject;
@@ -43,10 +44,12 @@ public class cameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //set camera's position
         cameraOrigin.transform.position = new Vector3(player.transform.position.x, playerBounds.bounds.center.y, player.transform.position.z);
+        //check if camera should not be frozen
         if (!isFrozen)
         {
-
+            //rotate the camera's origin point
             cameraOrigin.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X"), 0), Space.World);
             cameraOrigin.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), 0.0f, 0));
 
@@ -65,13 +68,13 @@ public class cameraController : MonoBehaviour
 
 
 
-
+            //work out new position and direction of camera from origin
             float difference = Vector3.Angle(new Vector3(player.transform.forward.x, 0, player.transform.forward.z), new Vector3(cameraOrigin.transform.forward.x, 0, cameraOrigin.transform.forward.z));
 
             Vector3 perp = Vector3.Cross(player.transform.forward, cameraOrigin.transform.forward);
             float dir = Vector3.Dot(perp, player.transform.up);
 
-
+            //rotate the camera
             if (dir > 0f)
             {
                 if (difference > 2.0f && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
@@ -89,8 +92,9 @@ public class cameraController : MonoBehaviour
                 }
             }
 
-
+            //reset camera origin's x and z rotation
             cameraOrigin.transform.eulerAngles = new Vector3(cameraOrigin.transform.eulerAngles.x, cameraOrigin.transform.eulerAngles.y, 0.0f);
+            //perform a raycast so the camera doesn't clip into walls and objects
             RaycastHit ray;
             int playerMask = 1 << 8;
             playerMask = ~playerMask;
@@ -106,6 +110,7 @@ public class cameraController : MonoBehaviour
 
     }
 
+    //rotator coroutines
     IEnumerator playerRotateLeft(float angle)
     {
         for (float i = angle; i > 0; i -= angle / 5)

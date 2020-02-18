@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [HideInInspector]
-
-public class legController : MonoBehaviour, IBodypart
+//generic leg controller
+public class legController : MonoBehaviour, IBodypart, ILegpart
 {
 
     float moveSpeed;
-    bool canJump;
+    public bool canJumpBool = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +24,10 @@ public class legController : MonoBehaviour, IBodypart
     public string GetBodyType()
     {
         return "leg";
+    }
+
+    public bool canJump()
+    {
+        return canJumpBool;
     }
 }
