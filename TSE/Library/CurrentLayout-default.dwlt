@@ -45,10 +45,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 678, y: 492}
+  m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 129
+  controlID: 150
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 386
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 57
+  controlID: 15
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 58
+  controlID: 16
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,34 +338,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Player/Prefabs
+    - Assets/Resources/Player/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Player/Prefabs
+  - Assets/Resources/Player/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: G:\Toby\Documents\GitHub\Project-Swap\TSE
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3a390000
-    m_LastClickedID: 14650
-    m_ExpandedIDs: 0000000010390000123900001439000016390000183900001a3900001e3900003c390000
+    m_SelectedIDs: 0c3c0000
+    m_LastClickedID: 15372
+    m_ExpandedIDs: 00000000da3b0000dc3b0000de3b0000e03b0000e23b0000e43b0000e63b0000e83b00000c3c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: ProCore
+      m_OriginalName: ProCore
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 15344
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -379,7 +379,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000010390000123900001439000016390000183900001a3900001c3900001e390000
+    m_ExpandedIDs: 00000000da3b0000dc3b0000de3b0000e03b0000e23b0000e43b0000e63b0000e83b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -501,21 +501,21 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d63e0000
-      m_LastClickedID: 16086
-      m_ExpandedIDs: dcf0ffff5cf8ffff763d0000803d0000b63d0000
+      scrollPos: {x: 0, y: 61}
+      m_SelectedIDs: aa380000
+      m_LastClickedID: 14506
+      m_ExpandedIDs: 5ef8ffffea370000f43700002a3800004a390000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Tracks (Missing Prefab)
-        m_OriginalName: Tracks (Missing Prefab)
+        m_Name: LeftArmSnapPoint
+        m_OriginalName: LeftArmSnapPoint
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -2010
+        m_UserData: -2144
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -615,11 +615,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.02435527, y: 0.97561437, z: -0.15825462, w: -0.1501436}
     speed: 2
-    m_Value: {x: -0.024580406, y: 0.9753739, z: -0.15971754, w: -0.1501066}
+    m_Value: {x: -0.024355222, y: 0.9756124, z: -0.1582543, w: -0.1501433}
   m_Size:
-    m_Target: 2.620931
+    m_Target: 12.892024
     speed: 2
-    m_Value: 2.320931
+    m_Value: 12.892024
   m_Ortho:
     m_Target: 0
     speed: 2
