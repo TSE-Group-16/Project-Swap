@@ -45,6 +45,9 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        isGrounded = true;
+
         //initialise variables
         player = this.GetComponent<Rigidbody>();
         camCont = cameraObj.GetComponent<cameraController>();
@@ -88,17 +91,12 @@ public class playerController : MonoBehaviour
                 player.AddForce(player.transform.right * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-            if (Input.GetKeyDown(KeyCode.Space) && hasLeg && curLeg.GetComponent<ILegpart>().canJump() && !isJumping)
+            if (Input.GetKeyDown(KeyCode.Space) && hasLeg && curLeg.GetComponent<ILegpart>().canJump() && isGrounded == true)
             {
+                //Debug.Log(isGrounded);
                 player.AddForce(player.transform.up * jumpForce);
-                isJumping = true;
-            }
-
-
-            //!!!!!grounded not working yet!!!!!
-            if (isJumping && isGrounded)
-            {
-                isJumping = false;
+                isGrounded = false;
+                //Debug.Log(isGrounded);
             }
 
             //pick up nearest item
@@ -106,10 +104,8 @@ public class playerController : MonoBehaviour
             {
                 Debug.Log("Equiped: " + nearItems[0].name);
                 equip(nearItems[0]);
-
             }
 
-            Debug.Log(isGrounded + "," + isJumping);
         }
         //open and close drop menu
         if(Input.GetKeyDown(KeyCode.Q))
