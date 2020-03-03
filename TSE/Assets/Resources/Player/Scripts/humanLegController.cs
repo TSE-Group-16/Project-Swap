@@ -6,7 +6,7 @@ public class humanLegController : MonoBehaviour, IBodypart, ILegpart
 {
     float moveSpeed;
     public bool canJumpBool = true;
-
+    public float timer;
     public static playerController PC;
 
     // Start is called before the first frame update
@@ -19,7 +19,12 @@ public class humanLegController : MonoBehaviour, IBodypart, ILegpart
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
         Debug.Log("leg controller bool " + PC.isGrounded);
+        if (timer <= 0)
+        {
+
+        }
     }
 
     public string GetBodyType()
@@ -30,6 +35,12 @@ public class humanLegController : MonoBehaviour, IBodypart, ILegpart
     public bool canJump()
     {
         return canJumpBool;
+    }
+
+    private bool Isground()
+    {
+        Physics.Raycast(boxCollider.bounds.center, )
+        return true;
     }
 
     public void OnTriggerEnter(Collider legsTagger)
