@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
-    [SerializeField]
-    GameObject player;
+    public GameObject player;
     playerController PC;
     public float climbSpeed;
 
@@ -22,13 +21,10 @@ public class Ladder : MonoBehaviour
 
     void OnTriggerStay(Collider Other)
     {
-        Debug.Log("climbing");
         if (Other.tag == "Player")
         {
-            Debug.Log("playerDet");
             if (PC.hasLArm == true && PC.hasRArm == true)
             {
-                Debug.Log("armsDet");
                 player.GetComponent<Rigidbody>().transform.Translate(new Vector3(0, climbSpeed, 0));
             }
         }

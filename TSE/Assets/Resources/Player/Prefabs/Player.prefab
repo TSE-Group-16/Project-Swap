@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4289494485570149474}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +95,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5000
   speedLimit: 2500
+  jumpForce: 0
+  hasLArm: 0
+  hasRArm: 0
+  isGrounded: 0
   radialMenu: {fileID: 0}
   cameraObj: {fileID: 0}
 --- !u!1 &4289494486567561651

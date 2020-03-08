@@ -21,7 +21,7 @@ public class playerController : MonoBehaviour
     public bool isGrounded = false;
 
 
-    List<GameObject> nearItems = new List<GameObject>();
+    public List<GameObject> nearItems = new List<GameObject>();
     List<GameObject> attachments = new List<GameObject>();
 
     GameObject legSocket;
@@ -105,7 +105,6 @@ public class playerController : MonoBehaviour
                 Debug.Log("Equiped: " + nearItems[0].name);
                 equip(nearItems[0]);
             }
-
         }
         //open and close drop menu
         if(Input.GetKeyDown(KeyCode.Q))

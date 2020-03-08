@@ -39,7 +39,6 @@ public class humanLegController : MonoBehaviour, IBodypart, ILegpart
 
     private bool Isground()
     {
-        Physics.Raycast(boxCollider.bounds.center, )
         return true;
     }
 
