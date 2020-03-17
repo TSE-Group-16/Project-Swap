@@ -7,18 +7,22 @@ public class humanLegController : MonoBehaviour, IBodypart, ILegpart
     float moveSpeed;
     public bool canJumpBool = true;
     public float timer;
-    public static playerController PC;
+    playerController PC;
+    groundCheck GC;
+
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject player = GameObject.Find("Player");
         PC = player.GetComponent<playerController>();
+        GC = this.GetComponent<groundCheck>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        PC.isGrounded = GC.checkForGround();
         timer -= Time.deltaTime;
         Debug.Log("leg controller bool " + PC.isGrounded);
         if (timer <= 0)
@@ -42,15 +46,6 @@ public class humanLegController : MonoBehaviour, IBodypart, ILegpart
         return true;
     }
 
-    public void OnTriggerEnter(Collider legsTagger)
-    {
-        Debug.Log("inside on trigger stay");
-        if (legsTagger.gameObject.CompareTag("ground"))
-        {
-            Debug.Log("ground touched");
-            PC.isGrounded = true;
-            Debug.Log(PC.isGrounded);
-        }
-    }
+    
 
 }

@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour
     public float speed;
     public float speedLimit;
     public float jumpForce;
+    public Vector3 forwardAngle;
 
     bool hasLeg;
     public bool hasLArm;
@@ -71,22 +72,22 @@ public class playerController : MonoBehaviour
         //check if player is frozen e.g. when menu is open
         if (!isFrozen)
         {
-            if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit)
+            if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
-                player.AddForce(player.transform.forward * speed * Time.deltaTime);
+                player.AddForce(forwardAngle * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-            if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= 5)
+            if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= 5 && isGrounded)
             {
                 player.AddForce(-player.transform.right * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-            if (Input.GetKey(KeyCode.S) && player.velocity.magnitude <= 5)
+            if (Input.GetKey(KeyCode.S) && player.velocity.magnitude <= 5 && isGrounded)
             {
                 player.AddForce(-player.transform.forward * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-            if (Input.GetKey(KeyCode.D) && player.velocity.magnitude <= 5)
+            if (Input.GetKey(KeyCode.D) && player.velocity.magnitude <= 5 && isGrounded)
             {
                 player.AddForce(player.transform.right * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
