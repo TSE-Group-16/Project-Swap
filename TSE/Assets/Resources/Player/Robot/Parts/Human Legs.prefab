@@ -12,10 +12,8 @@ GameObject:
   - component: {fileID: 4986038299027618643}
   - component: {fileID: 4986038299027618642}
   - component: {fileID: 4986038299027618668}
-  - component: {fileID: 7743966491051285811}
-  - component: {fileID: 3480781614192338317}
   - component: {fileID: 1742410930004880893}
-  - component: {fileID: 2851554980732600270}
+  - component: {fileID: 5990232153017222884}
   m_Layer: 0
   m_Name: Human Legs
   m_TagString: bodypart
@@ -53,7 +51,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &4986038299027618642
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80,33 +78,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canJumpBool: 1
-  timer: 0
---- !u!114 &7743966491051285811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3895642798024024665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bc516369d31ad42b22418410f3216d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!136 &3480781614192338317
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3895642798024024665}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.06
-  m_Height: 0.31047583
-  m_Direction: 1
-  m_Center: {x: -0.1, y: -0.05032897, z: 0}
 --- !u!136 &1742410930004880893
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -117,12 +88,12 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.06
-  m_Height: 0.31047583
-  m_Direction: 1
-  m_Center: {x: 0.10000002, y: -0.05032897, z: 0}
---- !u!65 &2851554980732600270
-BoxCollider:
+  m_Radius: 0.072
+  m_Height: 0.1
+  m_Direction: 2
+  m_Center: {x: -0.10000001, y: -0.14, z: 0}
+--- !u!136 &5990232153017222884
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -131,9 +102,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.30303687, y: 0.1932101, z: 0.15641479}
-  m_Center: {x: 0, y: 0.03924869, z: 0}
+  m_Radius: 0.072
+  m_Height: 0.1
+  m_Direction: 2
+  m_Center: {x: 0.1, y: -0.14, z: 0}
 --- !u!1 &7357844761140463556
 GameObject:
   m_ObjectHideFlags: 0

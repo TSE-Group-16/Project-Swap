@@ -13,10 +13,10 @@ public class playerController : MonoBehaviour
     public float jumpForce;
     public Vector3 forwardAngle;
 
-    bool hasLeg;
+    public bool hasLeg;
     public bool hasLArm;
     public bool hasRArm;
-    bool hasHead;
+    public bool hasHead;
     bool isFrozen;
     bool isJumping = false;
     public bool isGrounded = false;
@@ -38,7 +38,7 @@ public class playerController : MonoBehaviour
     [SerializeField]
     GameObject cameraObj;
     cameraController camCont;
-
+    groundCheck GC;
     SphereCollider itemChecker;
 
     
@@ -51,6 +51,7 @@ public class playerController : MonoBehaviour
 
         //initialise variables
         player = this.GetComponent<Rigidbody>();
+        GC = this.GetComponent<groundCheck>();
         camCont = cameraObj.GetComponent<cameraController>();
         itemChecker = player.GetComponent<SphereCollider>();
         legSocket = player.transform.Find("LegSnapPoint").gameObject;
@@ -69,6 +70,8 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        isGrounded = GC.checkForGround();
         //check if player is frozen e.g. when menu is open
         if (!isFrozen)
         {
@@ -77,17 +80,17 @@ public class playerController : MonoBehaviour
                 player.AddForce(forwardAngle * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-            if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= 5 && isGrounded)
+            if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
                 player.AddForce(-player.transform.right * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-            if (Input.GetKey(KeyCode.S) && player.velocity.magnitude <= 5 && isGrounded)
+            if (Input.GetKey(KeyCode.S) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
                 player.AddForce(-player.transform.forward * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-            if (Input.GetKey(KeyCode.D) && player.velocity.magnitude <= 5 && isGrounded)
+            if (Input.GetKey(KeyCode.D) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
                 player.AddForce(player.transform.right * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
