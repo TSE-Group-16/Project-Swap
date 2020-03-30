@@ -135,6 +135,41 @@ public class groundCheck : MonoBehaviour
                 print("fw" + PC.forwardAngle);
                 return true;
             }
+            else if (frontLeftHit)
+            {
+                PC.forwardAngle = Vector3.Cross(rayFrontLeft.normal, -PC.transform.right);
+                return true;
+            }
+            else if (frontRightHit)
+            {
+                PC.forwardAngle = Vector3.Cross(rayFrontRight.normal, -PC.transform.right);
+                return true;
+            }
+            else if (leftCenterHit)
+            {
+                PC.forwardAngle = Vector3.Cross(rayLeftCenter.normal, -PC.transform.right);
+                return true;
+            }
+            else if (rightCenterHit)
+            {
+                PC.forwardAngle = Vector3.Cross(rayRightCenter.normal, -PC.transform.right);
+                return true;
+            }
+            else if (centerHit)
+            {
+                PC.forwardAngle = Vector3.Cross(rayCenter.normal, -PC.transform.right);
+                return true;
+            }
+            else if (backLeftHit)
+            {
+                PC.forwardAngle = Vector3.Cross(rayBackLeft.normal, -PC.transform.right);
+                return true;
+            }
+            else if (backRightHit)
+            {
+                PC.forwardAngle = Vector3.Cross(rayBackRight.normal, -PC.transform.right);
+                return true;
+            }
             
             else if (Physics.Raycast(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), -this.transform.up, out rayCenter, 0.1f))
             {
