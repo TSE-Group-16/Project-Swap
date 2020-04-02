@@ -56,13 +56,14 @@ public class groundCheck : MonoBehaviour
         else
         {
             bounds = this.transform.Find("Robot Body").GetComponentInChildren<MeshFilter>().mesh.bounds;
-            centerHit = Physics.Raycast(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), -this.transform.up, out rayCenter, 0.1f);
-            leftCenterHit = Physics.Raycast(new Vector3(this.transform.position.x - bounds.extents.x * this.transform.right.x * 0.4f, this.transform.position.y, this.transform.position.z - bounds.extents.z * this.transform.right.z * 0.4f), -this.transform.up, out rayLeftCenter, 0.1f);
-            rightCenterHit = Physics.Raycast(new Vector3(this.transform.position.x + bounds.extents.x * this.transform.right.x * 0.4f, this.transform.position.y, this.transform.position.z + bounds.extents.z * this.transform.right.z * 0.4f), -this.transform.up, out rayRightCenter, 0.1f);
-            frontLeftHit = Physics.Raycast(new Vector3(this.transform.position.x - bounds.extents.x * (-this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z + this.bounds.extents.z * (this.transform.right.z + -this.transform.forward.z) * 0.4f), -this.transform.up, out rayBackRight, 0.1f);
-            frontRightHit = Physics.Raycast(new Vector3(this.transform.position.x + bounds.extents.x * (this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z + this.bounds.extents.z * (this.transform.right.z + this.transform.forward.z) * 0.4f), -this.transform.up, out rayFrontRight, 0.1f);
-            backLeftHit = Physics.Raycast(new Vector3(this.transform.position.x + bounds.extents.x * (-this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z - this.bounds.extents.z * (this.transform.right.z + -this.transform.forward.z) * 0.4f), -this.transform.up, out rayFrontLeft, 0.1f);
-            backRightHit = Physics.Raycast(new Vector3(this.transform.position.x - bounds.extents.x * (this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z - this.bounds.extents.z * (this.transform.right.z + this.transform.forward.z) * 0.4f), -this.transform.up, out rayBackLeft, 0.1f);
+            Debug.Log(bounds);
+            centerHit = Physics.Raycast(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), -this.transform.up, out rayCenter, 0.15f);
+            leftCenterHit = Physics.Raycast(new Vector3(this.transform.position.x - bounds.extents.x * this.transform.right.x * 0.4f, this.transform.position.y, this.transform.position.z - bounds.extents.z * this.transform.right.z * 0.4f), -this.transform.up, out rayLeftCenter, 0.15f);
+            rightCenterHit = Physics.Raycast(new Vector3(this.transform.position.x + bounds.extents.x * this.transform.right.x * 0.4f, this.transform.position.y, this.transform.position.z + bounds.extents.z * this.transform.right.z * 0.4f), -this.transform.up, out rayRightCenter, 0.15f);
+            frontLeftHit = Physics.Raycast(new Vector3(this.transform.position.x - bounds.extents.x * (-this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z + this.bounds.extents.z * (this.transform.right.z + -this.transform.forward.z) * 0.4f), -this.transform.up, out rayBackRight, 0.15f);
+            frontRightHit = Physics.Raycast(new Vector3(this.transform.position.x + bounds.extents.x * (this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z + this.bounds.extents.z * (this.transform.right.z + this.transform.forward.z) * 0.4f), -this.transform.up, out rayFrontRight, 0.15f);
+            backLeftHit = Physics.Raycast(new Vector3(this.transform.position.x + bounds.extents.x * (-this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z - this.bounds.extents.z * (this.transform.right.z + -this.transform.forward.z) * 0.4f), -this.transform.up, out rayFrontLeft, 0.15f);
+            backRightHit = Physics.Raycast(new Vector3(this.transform.position.x - bounds.extents.x * (this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z - this.bounds.extents.z * (this.transform.right.z + this.transform.forward.z) * 0.4f), -this.transform.up, out rayBackLeft, 0.15f);
             Debug.DrawRay(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), -this.transform.up * rayCenter.distance, Color.blue);
             Debug.DrawRay(new Vector3(this.transform.position.x - bounds.extents.x * this.transform.right.x * 0.4f, this.transform.position.y, this.transform.position.z - bounds.extents.z * this.transform.right.z * 0.4f), -this.transform.up * rayLeftCenter.distance, Color.red);
             Debug.DrawRay(new Vector3(this.transform.position.x + bounds.extents.x * this.transform.right.x * 0.4f, this.transform.position.y, this.transform.position.z + bounds.extents.z * this.transform.right.z * 0.4f), -this.transform.up * rayRightCenter.distance, Color.red);
@@ -71,7 +72,7 @@ public class groundCheck : MonoBehaviour
             Debug.DrawRay(new Vector3(this.transform.position.x + bounds.extents.x * (-this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z - this.bounds.extents.z * (this.transform.right.z + -this.transform.forward.z) * 0.4f), -this.transform.up * rayFrontLeft.distance, Color.green);
             Debug.DrawRay(new Vector3(this.transform.position.x - bounds.extents.x * (this.transform.right.x + this.transform.forward.x) * 0.4f, this.transform.position.y, this.transform.position.z - this.bounds.extents.z * (this.transform.right.z + this.transform.forward.z) * 0.4f), -this.transform.up * rayBackLeft.distance, Color.magenta);
         }
-        
+
         if (centerHit && rayCenter.transform.tag == "ground" || backLeftHit && rayBackLeft.transform.tag == "ground" || backRightHit && rayBackRight.transform.tag == "ground" || frontRightHit && rayFrontRight.transform.tag == "ground" || frontLeftHit && rayFrontLeft.transform.tag == "ground")
         {
             print(rayFrontLeft.normal.x + "," + rayFrontLeft.normal.y + "," + rayFrontLeft.normal.z);
@@ -170,42 +171,7 @@ public class groundCheck : MonoBehaviour
                 PC.forwardAngle = Vector3.Cross(rayBackRight.normal, -PC.transform.right);
                 return true;
             }
-            
-            else if (Physics.Raycast(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), -this.transform.up, out rayCenter, 0.1f))
-            {
-                PC.forwardAngle = Vector3.Cross(rayCenter.normal, -PC.transform.right);
-                return true;
-            }
-            else if (Physics.Raycast(new Vector3(this.transform.position.x - bounds.extents.x, this.transform.position.y, this.transform.position.z), -this.transform.up, out rayLeftCenter, 0.1f))
-            {
-                PC.forwardAngle = Vector3.Cross(rayLeftCenter.normal, -PC.transform.right);
-                return true;
-            }
-            else if (Physics.Raycast(new Vector3(this.transform.position.x + bounds.extents.x, this.transform.position.y, this.transform.position.z), -this.transform.up, out rayRightCenter, 0.1f))
-            {
-                PC.forwardAngle = Vector3.Cross(rayRightCenter.normal, -PC.transform.right);
-                return true;
-            }
-            else if (Physics.Raycast(new Vector3(this.transform.position.x - bounds.extents.x, this.transform.position.y, this.transform.position.z - this.bounds.extents.z), -this.transform.up, out rayBackLeft, 0.1f))
-            {
-                PC.forwardAngle = Vector3.Cross(rayBackLeft.normal, -PC.transform.right);
-                return true;
-            }
-            else if (Physics.Raycast(new Vector3(this.transform.position.x + bounds.extents.x, this.transform.position.y, this.transform.position.z - this.bounds.extents.z), -this.transform.up, out rayBackRight, 0.1f))
-            {
-                PC.forwardAngle = Vector3.Cross(rayBackRight.normal, -PC.transform.right);
-                return true;
-            }
-            else if (Physics.Raycast(new Vector3(this.transform.position.x - bounds.extents.x, this.transform.position.y, this.transform.position.z + this.bounds.extents.z), -this.transform.up, out rayFrontLeft, 0.1f))
-            {
-                PC.forwardAngle = Vector3.Cross(rayFrontLeft.normal, -PC.transform.right);
-                return true;
-            }
-            else if (Physics.Raycast(new Vector3(this.transform.position.x + bounds.extents.x, this.transform.position.y, this.transform.position.z + this.bounds.extents.z), -this.transform.up, out rayFrontRight, 0.1f))
-            {
-                PC.forwardAngle = Vector3.Cross(rayFrontRight.normal, -PC.transform.right);
-                return true;
-            }
+
         }
         print("falied");
         

@@ -80,6 +80,11 @@ public class playerController : MonoBehaviour
                 player.AddForce(forwardAngle * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
+            else if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit)
+            {
+                player.AddForce(this.transform.forward * speed * Time.deltaTime);
+                //Debug.Log(player.velocity);
+            }
             if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
                 player.AddForce(-player.transform.right * speed * Time.deltaTime);
@@ -121,6 +126,7 @@ public class playerController : MonoBehaviour
 
         if(Input.GetKeyUp(KeyCode.Q))
         {
+            Debug.Log("Close menu");
             radialMenu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             camCont.isFrozen = false;
