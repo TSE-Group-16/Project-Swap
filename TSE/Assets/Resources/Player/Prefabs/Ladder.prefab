@@ -107,5 +107,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2ef4669b133264abd9bda6e2951da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4289494485570149477, guid: bbf8c337a3be1db40b8753bd273729ce, type: 3}
-  climbSpeed: 0.02
+  player: {fileID: 0}
+  climbSpeed: 0.5

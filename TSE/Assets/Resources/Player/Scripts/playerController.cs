@@ -10,8 +10,11 @@ public class playerController : MonoBehaviour
 
     public float speed;
     public float speedLimit;
+    public float airSpeed;
     public float jumpForce;
     public Vector3 forwardAngle;
+
+    Vector3 centerOfMass;
 
     public bool hasLeg;
     public bool hasLArm;
@@ -48,7 +51,6 @@ public class playerController : MonoBehaviour
     {
 
         isGrounded = true;
-
         //initialise variables
         player = this.GetComponent<Rigidbody>();
         GC = this.GetComponent<groundCheck>();
@@ -59,6 +61,8 @@ public class playerController : MonoBehaviour
         lArmSocket = player.transform.Find("LeftArmSnapPoint").gameObject;
         rArmSocket = player.transform.Find("RightArmSnapPoint").gameObject;
         radialMenu.SetActive(false);
+        centerOfMass = player.centerOfMass;
+        player.centerOfMass = centerOfMass;
         //load all body parts into an array to instantiate them when needed
         Object[] prefabs = Resources.LoadAll("Player/Robot/Parts", typeof(GameObject));
         foreach (Object o in prefabs)
@@ -80,9 +84,9 @@ public class playerController : MonoBehaviour
                 player.AddForce(forwardAngle * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-            else if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit)
+            else if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && !isGrounded)
             {
-                player.AddForce(this.transform.forward * speed * Time.deltaTime);
+                player.AddForce(forwardAngle * speed * airSpeed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
             if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= speedLimit && isGrounded)
@@ -90,14 +94,29 @@ public class playerController : MonoBehaviour
                 player.AddForce(-player.transform.right * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
+            else if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= speedLimit && !isGrounded)
+            {
+                player.AddForce(-player.transform.right * speed * airSpeed * Time.deltaTime);
+                //Debug.Log(player.velocity);
+            }
             if (Input.GetKey(KeyCode.S) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
                 player.AddForce(-player.transform.forward * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
+            else if (Input.GetKey(KeyCode.S) && player.velocity.magnitude <= speedLimit && !isGrounded)
+            {
+                player.AddForce(-player.transform.forward * speed * airSpeed * Time.deltaTime);
+                //Debug.Log(player.velocity);
+            }
             if (Input.GetKey(KeyCode.D) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
                 player.AddForce(player.transform.right * speed * Time.deltaTime);
+                //Debug.Log(player.velocity);
+            }
+            else if (Input.GetKey(KeyCode.D) && player.velocity.magnitude <= speedLimit && !isGrounded)
+            {
+                player.AddForce(player.transform.right * speed * airSpeed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
             if (Input.GetKeyDown(KeyCode.Space) && hasLeg && curLeg.GetComponent<ILegpart>().canJump() && isGrounded == true)
@@ -262,24 +281,7 @@ public class playerController : MonoBehaviour
 
     }
 
-    //check for nearby body parts
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!nearItems.Contains(other.gameObject) && other.tag == "bodypart")
-        {
-            nearItems.Add(other.gameObject);
-        }
-
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(nearItems.Contains(other.gameObject))
-        {
-            nearItems.Remove(other.gameObject);
-        }
-    }
+    
 
     //getter functions
     public GameObject getCurHead()

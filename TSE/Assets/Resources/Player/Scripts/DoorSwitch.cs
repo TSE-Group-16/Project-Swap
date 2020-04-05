@@ -23,10 +23,12 @@ public class DoorSwitch : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") inRange = true;
+        if (other.transform.tag == "Player" || other.transform.tag == "bodypart")
+            inRange = true;
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player") inRange = false;
+        if (other.transform.tag == "Player" || other.transform.tag == "bodypart")
+            inRange = false;
     }
 }

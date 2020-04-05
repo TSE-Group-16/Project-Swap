@@ -26,7 +26,7 @@ public class levelOneSwitchController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "player")
+        if (other.tag == "player" || other.tag == "bodypart")
             activated = true;
     }
 
