@@ -18,5 +18,8 @@ public class levelController : MonoBehaviour
     {
         if (keyTotal == curKeys)
             win = true;
+
+        if (win)
+            print("WINNER");
     }
 }

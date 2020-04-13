@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class humanLegController : MonoBehaviour, IBodypart, ILegpart
+public class humanLegController : MonoBehaviour, IBodypart, ILegpart, IJump
 {
     float moveSpeed;
     public bool canJumpBool = true;
+    public float jumpMultFloat = 1.0f;
 
 
     // Start is called before the first frame update
@@ -27,6 +28,11 @@ public class humanLegController : MonoBehaviour, IBodypart, ILegpart
     public bool canJump()
     {
         return canJumpBool;
+    }
+
+    public float jumpMult()
+    {
+        return jumpMultFloat;
     }
 
 

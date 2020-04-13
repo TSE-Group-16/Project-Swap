@@ -19,7 +19,7 @@ public class keyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "player")
+        if (other.tag == "player" || other.tag == "bodypart")
         {
             lc.curKeys++;
             Destroy(this.gameObject);

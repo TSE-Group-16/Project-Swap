@@ -76,18 +76,20 @@ public class playerController : MonoBehaviour
     {
         
         isGrounded = GC.checkForGround();
+        print(isGrounded);
         //check if player is frozen e.g. when menu is open
         if (!isFrozen)
         {
-            if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded)
+            if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded == true)
             {
                 player.AddForce(forwardAngle * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-            else if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && !isGrounded)
+            else if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded == false)
             {
                 player.AddForce(forwardAngle * speed * airSpeed * Time.deltaTime);
                 //Debug.Log(player.velocity);
+                print("Air Move");
             }
             if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
@@ -121,8 +123,8 @@ public class playerController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space) && hasLeg && curLeg.GetComponent<ILegpart>().canJump() && isGrounded == true)
             {
-                //Debug.Log(isGrounded);
-                player.AddForce(player.transform.up * jumpForce);
+                Debug.Log("Jump: " + isGrounded);
+                player.AddForce(player.transform.up * jumpForce * curLeg.GetComponent<IJump>().jumpMult());
                 isGrounded = false;
                 //Debug.Log(isGrounded);
             }

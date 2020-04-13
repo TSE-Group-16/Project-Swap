@@ -26,19 +26,31 @@ public class Ladder : MonoBehaviour
     private void FixedUpdate()
     {
         if (climbing)
+        {
+            player.GetComponent<Rigidbody>().useGravity = false;
             player.transform.Translate(player.transform.up * Time.deltaTime * climbSpeed);
+        }
+        else
+        {
+            player.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
-    //void OnTriggerEnter(Collider Other)
-    //{
-    //    print("Ladder: " + Other.transform.tag);
-    //    if (Other.tag == "Player" || Other.tag == "bodypart")
-    //    {
-    //        if (PC.hasLArm == true && PC.hasRArm == true && Input.GetKey(KeyCode.W))
-    //        {
-    //            player.GetComponent<Rigidbody>().transform.Translate(new Vector3(0, climbSpeed, 0));
-    //        }
-    //    }
-    //}
+    void OnTriggerStay(Collider Other)
+    {
+        print("Ladder: " + Other.transform.tag);
+        if (Other.tag == "Player" || Other.tag == "bodypart")
+        {
+            if (PC.hasLArm == true && PC.hasRArm == true && Input.GetKey(KeyCode.W))
+            {
+                climbing = true;
+
+            }
+            else
+            {
+                climbing = false;
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider Other)
     {
@@ -49,6 +61,10 @@ public class Ladder : MonoBehaviour
             {
                 climbing = true;
                 
+            }
+            else
+            {
+                climbing = false;
             }
         }
     }

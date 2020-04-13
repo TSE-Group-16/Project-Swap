@@ -14,3 +14,8 @@ public interface ILegpart
 {
     bool canJump();
 }
+
+public interface IJump
+{
+    float jumpMult();
+}
