@@ -85,108 +85,106 @@ public class groundCheck : MonoBehaviour
         //print(-PC.transform.right.x + "," + -PC.transform.right.y + "," + -PC.transform.right.z);
         //print(rayFrontLeft.transform.tag);
         //print(frontLeftHit);
-        if (frontLeftHit && leftCenterHit)
+        
+        if (frontLeftHit && leftCenterHit && (rayFrontLeft.transform.tag == "ground" || rayFrontLeft.transform.tag == "bodypart") && rayFrontLeft.normal.y <= rayLeftCenter.normal.y)
         {
-            if ((rayFrontLeft.transform.tag == "ground" || rayFrontLeft.transform.tag == "bodypart") && rayFrontLeft.normal.y <= rayLeftCenter.normal.y)
-            {
-                print("FL <= LC: " + rayFrontLeft.transform.tag);
-                PC.forwardAngle = Vector3.Cross(rayFrontLeft.normal, -PC.transform.right);
-                //print("fw" + PC.forwardAngle);
-                return true;
-            }
-            else if ((rayCenter.transform.tag == "ground" || rayCenter.transform.tag == "bodypart") && rayLeftCenter.normal.y <= rayBackLeft.normal.y)
-            {
-                print("LC <= BL");
-                PC.forwardAngle = Vector3.Cross(rayLeftCenter.normal.normalized, -PC.transform.right.normalized);
-                //print("fw" + PC.forwardAngle);
-                return true;
-            }
+            //print("FL <= LC: " + rayFrontLeft.transform.tag);
+            PC.forwardAngle = Vector3.Cross(rayFrontLeft.normal, -PC.transform.right);
+            //print("fw" + PC.forwardAngle);
+            return true;
+        }
+        else if (leftCenterHit && backLeftHit && (rayCenter.transform.tag == "ground" || rayCenter.transform.tag == "bodypart") && rayLeftCenter.normal.y <= rayBackLeft.normal.y)
+        {
+            //print("LC <= BL");
+            PC.forwardAngle = Vector3.Cross(rayLeftCenter.normal.normalized, -PC.transform.right.normalized);
+            //print("fw" + PC.forwardAngle);
+            return true;
         }
         else if (frontRightHit && rightCenterHit && (rayFrontRight.transform.tag == "ground" || rayFrontRight.transform.tag == "bodypart") && rayFrontRight.normal.y <= rayRightCenter.normal.y)
         {
-            print("FR <= RC");
+            //print("FR <= RC");
             PC.forwardAngle = Vector3.Cross(rayFrontRight.normal, -PC.transform.right);
-            //print("fw" + PC.forwardAngle);
+           // print("fw" + PC.forwardAngle);
             return true;
         }
         else if (rightCenterHit && backRightHit && (rayRightCenter.transform.tag == "ground" || rayRightCenter.transform.tag == "bodypart") && rayRightCenter.normal.y <= rayBackRight.normal.y)
         {
-            print("RC <= BR");
+            //print("RC <= BR");
             PC.forwardAngle = Vector3.Cross(rayRightCenter.normal, -PC.transform.right);
             //print("fw" + PC.forwardAngle);
             return true;
         }
         else if (leftCenterHit && backLeftHit && (rayLeftCenter.transform.tag == "ground" || rayLeftCenter.transform.tag == "bodypart") && rayLeftCenter.normal.y >= rayBackLeft.normal.y)
         {
-            print("LC >= BL");
+            //print("LC >= BL");
             PC.forwardAngle = Vector3.Cross(rayBackLeft.normal, -PC.transform.right);
             //print("fw" + PC.forwardAngle);
             return true;
         }
         else if (frontLeftHit && leftCenterHit && (rayFrontLeft.transform.tag == "ground" || rayFrontLeft.transform.tag == "bodypart") && rayFrontLeft.normal.y >= rayLeftCenter.normal.y)
         {
-            print("FL >= LC");
+            //print("FL >= LC");
             PC.forwardAngle = Vector3.Cross(rayLeftCenter.normal, -PC.transform.right);
             //print("fw" + PC.forwardAngle);
             return true;
         }
         else if (rightCenterHit && backRightHit && (rayRightCenter.transform.tag == "ground" || rayRightCenter.transform.tag == "bodypart") && rayRightCenter.normal.y >= rayBackRight.normal.y)
         {
-            print("RC >= BR");
+            //print("RC >= BR");
             PC.forwardAngle = Vector3.Cross(rayBackRight.normal, -PC.transform.right);
             //print("fw" + PC.forwardAngle);
             return true;
         }
         else if (frontRightHit && rightCenterHit && (rayFrontRight.transform.tag == "ground" || rayFrontRight.transform.tag == "bodypart") && rayFrontRight.normal.y >= rayRightCenter.normal.y)
         {
-            print("FR >= RC");
+            //print("FR >= RC");
             PC.forwardAngle = Vector3.Cross(rayRightCenter.normal, -PC.transform.right);
             //print("fw" + PC.forwardAngle);
             return true;
         }
         else if (frontLeftHit)
         {
-            print("FL");
+            //print("FL");
             PC.forwardAngle = Vector3.Cross(rayFrontLeft.normal, -PC.transform.right);
             return true;
         }
         else if (frontRightHit)
         {
-            print("FR");
+            //print("FR");
             PC.forwardAngle = Vector3.Cross(rayFrontRight.normal, -PC.transform.right);
             return true;
         }
         else if (leftCenterHit)
         {
-            print("LC");
+            //print("LC");
             PC.forwardAngle = Vector3.Cross(rayLeftCenter.normal, -PC.transform.right);
             return true;
         }
         else if (rightCenterHit)
         {
-            print("RC");
+            //print("RC");
             PC.forwardAngle = Vector3.Cross(rayRightCenter.normal, -PC.transform.right);
             return true;
         }
         else if (centerHit)
         {
-            print("C: " + rayCenter.transform.gameObject + ", " + rayCenter.transform.tag + ", " + rayCenter.transform.name);
+            //print("C: " + rayCenter.transform.gameObject + ", " + rayCenter.transform.tag + ", " + rayCenter.transform.name);
             PC.forwardAngle = Vector3.Cross(rayCenter.normal, -PC.transform.right);
             return true;
         }
         else if (backLeftHit)
         {
-            print("BL: " + rayBackLeft.transform.gameObject + ", " + rayBackLeft.transform.tag + ", " + rayBackLeft.transform.name);
+            //print("BL: " + rayBackLeft.transform.gameObject + ", " + rayBackLeft.transform.tag + ", " + rayBackLeft.transform.name);
             PC.forwardAngle = Vector3.Cross(rayBackLeft.normal, -PC.transform.right);
             return true;
         }
         else if (backRightHit)
         {
-            print("BR");
+            //print("BR");
             PC.forwardAngle = Vector3.Cross(rayBackRight.normal, -PC.transform.right);
             return true;
         }
-        print("falied");
+        //print("falied");
         
         return false;
     }

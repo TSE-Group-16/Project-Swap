@@ -76,7 +76,7 @@ public class playerController : MonoBehaviour
     {
         
         isGrounded = GC.checkForGround();
-        print(isGrounded);
+        //print(isGrounded);
         //check if player is frozen e.g. when menu is open
         if (!isFrozen)
         {
@@ -156,6 +156,11 @@ public class playerController : MonoBehaviour
 
         //reset player's x and z rotation
         player.transform.eulerAngles = new Vector3(0, player.transform.rotation.eulerAngles.y, 0);
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     //drop functions

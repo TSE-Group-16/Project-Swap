@@ -11,6 +11,8 @@ public class levelController : MonoBehaviour
     void Start()
     {
         keyTotal = GameObject.FindGameObjectsWithTag("key").Length;
+        curKeys = 0;
+        print(keyTotal);
     }
 
     // Update is called once per frame
@@ -20,6 +22,34 @@ public class levelController : MonoBehaviour
             win = true;
 
         if (win)
+        {
             print("WINNER");
+        }
+    }
+
+
+    IEnumerator openDoor(GameObject[] doors, bool finishBool)
+    {
+        while (!finishBool)
+        {
+            foreach (GameObject door in doors)
+            {
+                //print("Moving Door" + door);
+                door.transform.Translate(0, -(doorSpeed * Time.deltaTime), 0);
+
+                //print(doorSpeed * Time.deltaTime);
+                //print(doorHeightMoved);
+            }
+            doorHeightMoved += 0.1f * Time.deltaTime;
+            if (doorHeightMoved >= 0.7)
+            {
+                //print("Door Done");
+                finishBool = true;
+                StopCoroutine(doorOpener);
+            }
+            yield return null;
+        }
+
+
     }
 }

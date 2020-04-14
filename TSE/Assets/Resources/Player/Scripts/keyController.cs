@@ -5,6 +5,7 @@ using UnityEngine;
 public class keyController : MonoBehaviour
 {
     levelController lc;
+    bool collected = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,12 @@ public class keyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "player" || other.tag == "bodypart")
+        print(other.transform.tag);
+        if ((other.transform.tag == "Player" || other.transform.tag == "bodypart") && !collected)
         {
+            collected = true;
             lc.curKeys++;
+            print("key: " + lc.curKeys);
             Destroy(this.gameObject);
         }
     }
