@@ -7,6 +7,12 @@ public class levelController : MonoBehaviour
     int keyTotal;
     public int curKeys;
     bool win = false;
+    IEnumerator doorOpener;
+    bool activated = false;
+    bool finishedOpeningVents = false;
+    bool startedOpeningVents = false;
+    float doorHeightMoved = 0.0f;
+    float doorSpeed = 0.25f;
     // Start is called before the first frame update
     void Start()
     {
