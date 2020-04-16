@@ -9,6 +9,8 @@ TagManager:
   - ground
   - key
   - ventDoor
+  - finalDoor
+  - cageDoor
   layers:
   - Default
   - TransparentFX
