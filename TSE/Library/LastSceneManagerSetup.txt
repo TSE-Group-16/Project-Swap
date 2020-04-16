@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/tutorial.unity
+=======
+- path: Assets/Scenes/JSch_Level.unity
+>>>>>>> f44286545592bfedcc4a1f52dbc7dc51eebee67b
   isLoaded: 1
   isActive: 1
   isSubScene: 0
