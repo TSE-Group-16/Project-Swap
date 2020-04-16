@@ -6,7 +6,7 @@ public class levelController : MonoBehaviour
 {
     int keyTotal;
     public int curKeys;
-    bool win = false;
+    public bool win = false;
     IEnumerator doorOpener;
     bool activated = false;
     bool finishedOpeningVents = false;
@@ -30,24 +30,23 @@ public class levelController : MonoBehaviour
         if (win)
         {
             print("WINNER");
+            doorOpener = openDoor(GameObject.FindGameObjectWithTag("finalDoor"), finishedOpeningVents);
+            StartCoroutine(doorOpener);
         }
     }
 
 
-    IEnumerator openDoor(GameObject[] doors, bool finishBool)
+    IEnumerator openDoor(GameObject door, bool finishBool)
     {
         while (!finishBool)
         {
-            foreach (GameObject door in doors)
-            {
-                //print("Moving Door" + door);
-                door.transform.Translate(0, -(doorSpeed * Time.deltaTime), 0);
 
-                //print(doorSpeed * Time.deltaTime);
-                //print(doorHeightMoved);
-            }
+            //print("Moving Door" + door);
+            door.transform.Translate(0, -(doorSpeed * Time.deltaTime), 0);
+
+            //print(doorSpeed * Time.deltaTime);
             doorHeightMoved += 0.1f * Time.deltaTime;
-            if (doorHeightMoved >= 0.7)
+            if (doorHeightMoved >= 2.5)
             {
                 //print("Door Done");
                 finishBool = true;

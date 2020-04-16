@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+*.meta
+*.meta
+TSE/Assets/Standard Assets/Level Meshes/Tutorial_Prototype.mtl.meta
