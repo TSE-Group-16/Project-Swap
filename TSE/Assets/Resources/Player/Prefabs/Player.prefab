@@ -89,14 +89,12 @@ MonoBehaviour:
   speedLimit: 55000
   airSpeed: 0.001
   jumpForce: 25000
-  climbSpeed: 0.5
   forwardAngle: {x: 0, y: 0, z: 0}
   hasLeg: 0
   hasLArm: 0
   hasRArm: 0
   hasHead: 0
   isGrounded: 0
-  climbing: 0
   nearItems: []
   radialMenu: {fileID: 0}
   cameraObj: {fileID: 0}

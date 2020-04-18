@@ -12,7 +12,6 @@ public class playerController : MonoBehaviour
     public float speedLimit;
     public float airSpeed;
     public float jumpForce;
-    public float climbSpeed;
     public Vector3 forwardAngle;
 
     Vector3 centerOfMass;
@@ -24,7 +23,6 @@ public class playerController : MonoBehaviour
     bool isFrozen;
     bool isJumping = false;
     public bool isGrounded = false;
-    public bool climbing;
 
 
     public List<GameObject> nearItems = new List<GameObject>();
@@ -53,7 +51,6 @@ public class playerController : MonoBehaviour
     {
 
         isGrounded = true;
-        climbing = false;
         //initialise variables
         player = this.GetComponent<Rigidbody>();
         GC = this.GetComponent<groundCheck>();
@@ -83,13 +80,7 @@ public class playerController : MonoBehaviour
         //check if player is frozen e.g. when menu is open
         if (!isFrozen)
         {
-            if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && climbing == true)
-            {
-                player.AddForce(forwardAngle * speed * Time.deltaTime);
-                print("climbing");
-                transform.Translate(player.transform.up * Time.deltaTime * climbSpeed);
-            }
-            else if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded == true)
+            if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded == true)
             {
                 player.AddForce(forwardAngle * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
@@ -130,8 +121,6 @@ public class playerController : MonoBehaviour
                 player.AddForce(player.transform.right * speed * airSpeed * Time.deltaTime);
                 //Debug.Log(player.velocity);
             }
-
-
             if (Input.GetKeyDown(KeyCode.Space) && hasLeg && curLeg.GetComponent<ILegpart>().canJump() && isGrounded == true)
             {
                 Debug.Log("Jump: " + isGrounded);

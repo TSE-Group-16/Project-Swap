@@ -10,7 +10,6 @@ public interface IBodypart
 }
 
 
-
 public interface ILegpart
 {
     bool canJump();
