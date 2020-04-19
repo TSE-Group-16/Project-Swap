@@ -20,13 +20,13 @@ public class keyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.transform.tag);
-        if ((other.transform.tag == "Player" || other.transform.tag == "bodypart") && !collected)
+        print(other.tag);
+        if ((other.tag == "Player" || other.tag == "bodypart") && !collected)
         {
             collected = true;
             lc.curKeys++;
             print("key: " + lc.curKeys);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
