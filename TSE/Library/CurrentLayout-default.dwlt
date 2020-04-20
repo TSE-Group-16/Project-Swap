@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 123
+  controlID: 72
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -97,7 +97,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &5
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 45
+  controlID: 70
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 122
+  controlID: 71
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -375,20 +375,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Player/Robot/Parts
+    - Assets/Resources/Player/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Player/Robot/Parts
+  - Assets/Resources/Player/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Tommy Middleton\Documents\GitHub\Project-Swap\TSE
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 70}
-    m_SelectedIDs: 5a630000
-    m_LastClickedID: 25434
-    m_ExpandedIDs: 00000000366300004e63000052630000566300006463000000ca9a3b
+    scrollPos: {x: 0, y: 118}
+    m_SelectedIDs: 92420000
+    m_LastClickedID: 17042
+    m_ExpandedIDs: 000000005e42000060420000624200006442000066420000a042000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -416,7 +416,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 000000005e42000060420000624200006442000066420000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -468,7 +468,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 4}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 295
@@ -596,9 +596,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -9.299995, y: 12.771111, z: -1.9918327}
+    m_Target: {x: 0.38102794, y: 4.1047, z: -11.865352}
     speed: 2
-    m_Value: {x: -9.299995, y: 12.771111, z: -1.9918327}
+    m_Value: {x: 0.38102794, y: 4.1047, z: -11.865352}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -644,13 +644,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.03727909, y: 0.52439815, z: -0.02298744, w: -0.8503508}
+    m_Target: {x: -0.018022763, y: 0.9706616, z: -0.22707997, w: -0.07703613}
     speed: 2
-    m_Value: {x: -0.03727894, y: 0.524396, z: -0.022987347, w: -0.85034734}
+    m_Value: {x: -0.018022684, y: 0.9706574, z: -0.227079, w: -0.0770358}
   m_Size:
-    m_Target: 22.191721
+    m_Target: 22.673618
     speed: 2
-    m_Value: 22.191721
+    m_Value: 22.673618
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -704,9 +704,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 4e84ffff3085ffff86650000
+      m_SelectedIDs: dac9ffff60c8ffffa2caffff62caffff2ec8ffff7ec9ffff3cc8ffff26caffffa4caffffb2caffff2ecbffffaec9ffffb4c9fffffec8ffff28c8ffffc8c8ffffd6caffff96c8ffffbacaffff7ec8ffffdac8fffff8c8ffff9ec8ffff4ecaffffa8c8ffff2acbffffb0c8ffff1ccaffff6ecaffff94c8ffffa6c8ffffaac9ffff0acaffff16caffff3cc9ffffcccaffff3ec8ffff92caffffd8c9ffffcacaffff26c9ffff2ac9ffff8cc8ffff2ec9ffff5ecaffff74c8ffff4cc9ffff54c9ffff50c8ffff
+      m_LastClickedID: -14256
+      m_ExpandedIDs: 4acbfffff2d2ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
