@@ -21,17 +21,17 @@ public class grateController : MonoBehaviour
             Debug.Log("has leg");
             if (PC.getCurLeg().name == "Tracks")
             {
-                this.GetComponent<BoxCollider>().enabled = false;
+                this.GetComponent<BoxCollider>().enabled = true;
                 Debug.Log("has right leg");
             }
             else
             {
-                this.GetComponent<BoxCollider>().enabled = true;
+                this.GetComponent<BoxCollider>().enabled = false;
             }
         }
         else
         {
-            this.GetComponent<BoxCollider>().enabled = true;
+            this.GetComponent<BoxCollider>().enabled = false;
         }
     }
 }
