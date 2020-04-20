@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour
     public float airSpeed;
     public float jumpForce;
     public Vector3 forwardAngle;
+    public float climbSpeed;
 
     Vector3 centerOfMass;
 
@@ -23,6 +24,7 @@ public class playerController : MonoBehaviour
     bool isFrozen;
     bool isJumping = false;
     public bool isGrounded = false;
+    public bool isClimbing = false;
 
 
     public List<GameObject> nearItems = new List<GameObject>();
@@ -80,7 +82,13 @@ public class playerController : MonoBehaviour
         //check if player is frozen e.g. when menu is open
         if (!isFrozen)
         {
-            if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded == true)
+            if (isClimbing)
+            {
+                player.useGravity = false;
+                player.transform.Translate(player.transform.up * Time.deltaTime * climbSpeed);
+                player.AddForce(forwardAngle * speed * Time.deltaTime);
+            }
+            else if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded == true)
             {
                 player.AddForce(forwardAngle * speed * Time.deltaTime);
                 //Debug.Log(player.velocity);
@@ -90,6 +98,10 @@ public class playerController : MonoBehaviour
                 player.AddForce(forwardAngle * speed * airSpeed * Time.deltaTime);
                 //Debug.Log(player.velocity);
                 print("Air Move");
+            }
+            else
+            {
+                player.useGravity = true;
             }
             if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= speedLimit && isGrounded)
             {

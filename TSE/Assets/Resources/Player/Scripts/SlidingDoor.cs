@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlidingDoor : MonoBehaviour
+public class slidingDoor : MonoBehaviour
 {
     public float openSpeed;
     public float openDistance;
