@@ -19,7 +19,7 @@ public class levelEnd : MonoBehaviour
     {
         if (other.tag == "Player" || other.tag == "bodypart")
         {
-            Application.Quit();
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
     }
 }

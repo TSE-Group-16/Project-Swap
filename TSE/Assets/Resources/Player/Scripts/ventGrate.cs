@@ -5,10 +5,13 @@ using UnityEngine;
 public class ventGrate : MonoBehaviour
 {
     private bool inRange;
+    public GameObject tutorial;
+    tutorialController TC;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        TC = tutorial.GetComponent<tutorialController>();
     }
 
     // Update is called once per frame
@@ -24,11 +27,19 @@ public class ventGrate : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.name == "Screwdriver")
+        {
             inRange = true;
+        }
+        else
+        {
+            TC.ShowVentGrateHelp();
+        }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.name == "Screwdriver")
+        {
             inRange = false;
+        }
     }
 }
