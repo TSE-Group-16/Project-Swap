@@ -12,20 +12,23 @@ public class liftManager : MonoBehaviour
     public GameObject otherLift;
     bool entered = true;
     bool inside = false;
+    bool teleporting = false;
+    bool teleported = false;
 
     // Update is called once per frame
     void Lift()
     {
+        teleporting = true;
         otherLift.GetComponent<liftManager>().entered = false;
         otherLift.GetComponent<liftManager>().inside = true;
         Debug.Log("Lift test");
         toggleAllDoors();
         StartCoroutine("Timer");
-        
+
     }
 
 
-        void toggleAllDoors() 
+    void toggleAllDoors()
     {
         door1.GetComponent<SlidingDoorX>().Toggle();
         door2.GetComponent<SlidingDoorX>().Toggle();
@@ -47,15 +50,25 @@ public class liftManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (entered && !inside)
+        if (entered && !inside && !teleported)
             Lift();
+        if (teleporting && !teleported)
+        {
+            teleported = true;
+            teleporting = false;
+        }
     }
 
-    void OnTriggerExit(Collider other) 
+    void OnTriggerExit(Collider other)
     {
         entered = true;
         inside = false;
         otherLift.GetComponent<liftManager>().inside = false;
+        if (teleported)
+        {
+            teleported = false;
+            teleporting = false;
+        }
     }
 }
 

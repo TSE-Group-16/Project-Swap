@@ -48,7 +48,7 @@ public class levelController : MonoBehaviour
             doorHeightMoved += 0.1f * Time.deltaTime;
             if (doorHeightMoved >= 2.5)
             {
-                //print("Door Done");
+                print("Door Done");
                 finishBool = true;
                 StopCoroutine(doorOpener);
             }

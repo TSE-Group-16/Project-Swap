@@ -25,6 +25,7 @@ public class playerController : MonoBehaviour
     bool isJumping = false;
     public bool isGrounded = false;
     public bool isClimbing = false;
+    public bool inLift = false;
 
 
     public List<GameObject> nearItems = new List<GameObject>();

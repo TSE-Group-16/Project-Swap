@@ -28,7 +28,7 @@ public class SlidingDoorX : MonoBehaviour
                 pos.x += openSpeed;
                 transform.position = pos;
             }
-            if (transform.position.x > closedPos && isOpen == false)
+            else if (transform.position.x > closedPos && isOpen == false)
             {
                 Vector3 pos = transform.position;
                 pos.x -= openSpeed;
@@ -43,7 +43,7 @@ public class SlidingDoorX : MonoBehaviour
                 pos.x -= openSpeed ;
                 transform.position = pos;
             }
-            if (transform.position.x < closedPos && isOpen == false)
+            else if (transform.position.x < closedPos && isOpen == false)
             {
                 Vector3 pos = transform.position;
                 pos.x += openSpeed;
@@ -59,7 +59,7 @@ public class SlidingDoorX : MonoBehaviour
             isOpen = true;
             Debug.Log("Open");
         }
-        else
+        else if (isOpen)
         {
             isOpen = false;
             Debug.Log("Closed");
