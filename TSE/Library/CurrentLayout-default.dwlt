@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 678, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 78
+  controlID: 99
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 3641
+  controlID: 100
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 84
+  controlID: 101
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,34 +338,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Player/Scripts
+    - Assets/Scenes
   m_ViewMode: 1
-  m_StartGridSize: 64
+  m_StartGridSize: 55
   m_LastFolders:
-  - Assets/Resources/Player/Scripts
-  m_LastFoldersGridSize: -1
+  - Assets/Scenes
+  m_LastFoldersGridSize: 55
   m_LastProjectPath: G:\Toby\Documents\GitHub\Project-Swap\TSE
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 94}
-    m_SelectedIDs: ca3a0000
-    m_LastClickedID: 15050
-    m_ExpandedIDs: 00000000c83a0000ca3a0000cc3a0000ce3a00001a5d00001e5d000000ca9a3b
+    scrollPos: {x: 0, y: 190}
+    m_SelectedIDs: 863b0000
+    m_LastClickedID: 15238
+    m_ExpandedIDs: 00000000363b0000383b00003a3b00003c3b0000723b0000763b0000863b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Resources
+      m_OriginalName: Resources
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 15218
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
@@ -379,7 +379,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c83a0000ca3a0000cc3a0000ce3a0000
+    m_ExpandedIDs: 00000000363b0000383b00003a3b00003c3b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -407,7 +407,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 96010000
+    m_ExpandedInstanceIDs: 96010000be40000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -432,7 +432,7 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 64
+    m_GridSize: 55
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 216
 --- !u!114 &14
@@ -501,21 +501,21 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 150}
-      m_SelectedIDs: e69affff
-      m_LastClickedID: -25882
-      m_ExpandedIDs: f0acffff18b7ffff08d8ffff92dfffffd8dfffff0ce0ffff9ae1ffff60fbffff48680000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 9a3d0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: a2abffff3aadffff7caeffff08b0ffff4ab1ffff72b1ffff02b4ffff1ad5ffff92ddffffe4ddffffaef3ffffe2f8ffff22f9ffff60fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Vent Check
-        m_OriginalName: Vent Check
+        m_Name: jimmylevel_normalfix_3 (Missing Prefab)
+        m_OriginalName: jimmylevel_normalfix_3 (Missing Prefab)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -9202
+        m_UserData: -19624
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -565,9 +565,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.230897, y: 3.2934265, z: -4.3085737}
+    m_Target: {x: 3.1300178, y: 3.9898982, z: 1.1982462}
     speed: 2
-    m_Value: {x: -4.230897, y: 3.2934265, z: -4.3085737}
+    m_Value: {x: 3.1300178, y: 3.9898982, z: 1.1982462}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -605,21 +605,21 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 0, y: 0}
+      m_Size: {x: 1, y: 1}
     m_ShowGrid: 1
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.031799205, y: 0.8849991, z: -0.061531577, w: -0.4607569}
+    m_Target: {x: -0.15629596, y: 0.80459964, z: -0.24271716, w: -0.5192278}
     speed: 2
-    m_Value: {x: -0.031794157, y: 0.8848586, z: -0.06152181, w: -0.46068373}
+    m_Value: {x: -0.15590692, y: 0.8052496, z: -0.24291271, w: -0.51793796}
   m_Size:
-    m_Target: 3.7072237
+    m_Target: 8.040549
     speed: 2
-    m_Value: 3.7072237
+    m_Value: 8.040549
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -637,7 +637,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_LastSceneViewRotation: {x: -0.031799205, y: 0.8849991, z: -0.061531577, w: -0.4607569}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
