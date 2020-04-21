@@ -13,7 +13,6 @@ public class SlidingDoorX : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isOpen = false;
         closedPos = transform.position.x;
         Physics.IgnoreLayerCollision(9, 9);
     }
@@ -51,7 +50,6 @@ public class SlidingDoorX : MonoBehaviour
                 transform.position = pos;
             }
         }
-        if (Input.GetKeyDown("o")) Toggle();
     }
 
     public void Toggle()
