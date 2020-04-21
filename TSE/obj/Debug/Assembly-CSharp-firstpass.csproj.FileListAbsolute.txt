@@ -1458,3 +1458,4 @@ C:\Users\scurr\Documents\GitHub\Project-Swap\TSE\obj\Debug\Assembly-CSharp-first
 C:\Users\scurr\Documents\GitHub\Project-Swap\TSE\obj\Debug\Assembly-CSharp-firstpass.csproj.CopyComplete
 C:\Users\scurr\Documents\GitHub\Project-Swap\TSE\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\Users\scurr\Documents\GitHub\Project-Swap\TSE\obj\Debug\Assembly-CSharp-firstpass.pdb
+G:\Toby\Documents\GitHub\Project-Swap\TSE\obj\Debug\Assembly-CSharp-firstpass.csproj.CoreCompileInputs.cache
