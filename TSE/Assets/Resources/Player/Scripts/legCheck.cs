@@ -13,11 +13,6 @@ public class legCheck : MonoBehaviour
         TC = tutorial.GetComponent<tutorialController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     void OnTriggerEnter()
     {

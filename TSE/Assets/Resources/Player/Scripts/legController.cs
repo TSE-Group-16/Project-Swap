@@ -9,17 +9,6 @@ public class legController : MonoBehaviour, IBodypart, ILegpart
 
     float moveSpeed;
     public bool canJumpBool = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public string GetBodyType()
     {

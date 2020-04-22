@@ -77,9 +77,8 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //check if player is grounded
         isGrounded = GC.checkForGround();
-        //print(isGrounded);
         //check if player is frozen e.g. when menu is open
         if (!isFrozen)
         {
@@ -89,15 +88,14 @@ public class playerController : MonoBehaviour
                 player.transform.Translate(player.transform.up * Time.deltaTime * climbSpeed);
                 player.AddForce(forwardAngle * speed * Time.deltaTime);
             }
+            //move player
             else if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded == true)
             {
                 player.AddForce(forwardAngle * speed * Time.deltaTime);
-                //Debug.Log(player.velocity);
             }
             else if (Input.GetKey(KeyCode.W) && player.velocity.magnitude <= speedLimit && isGrounded == false)
             {
                 player.AddForce(forwardAngle * speed * airSpeed * Time.deltaTime);
-                //Debug.Log(player.velocity);
                 print("Air Move");
             }
             else
@@ -107,39 +105,32 @@ public class playerController : MonoBehaviour
             if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
                 player.AddForce(-player.transform.right * speed * Time.deltaTime);
-                //Debug.Log(player.velocity);
             }
             else if (Input.GetKey(KeyCode.A) && player.velocity.magnitude <= speedLimit && !isGrounded)
             {
                 player.AddForce(-player.transform.right * speed * airSpeed * Time.deltaTime);
-                //Debug.Log(player.velocity);
             }
             if (Input.GetKey(KeyCode.S) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
                 player.AddForce(-player.transform.forward * speed * Time.deltaTime);
-                //Debug.Log(player.velocity);
             }
             else if (Input.GetKey(KeyCode.S) && player.velocity.magnitude <= speedLimit && !isGrounded)
             {
                 player.AddForce(-player.transform.forward * speed * airSpeed * Time.deltaTime);
-                //Debug.Log(player.velocity);
             }
             if (Input.GetKey(KeyCode.D) && player.velocity.magnitude <= speedLimit && isGrounded)
             {
                 player.AddForce(player.transform.right * speed * Time.deltaTime);
-                //Debug.Log(player.velocity);
             }
             else if (Input.GetKey(KeyCode.D) && player.velocity.magnitude <= speedLimit && !isGrounded)
             {
                 player.AddForce(player.transform.right * speed * airSpeed * Time.deltaTime);
-                //Debug.Log(player.velocity);
             }
             if (Input.GetKeyDown(KeyCode.Space) && hasLeg && curLeg.GetComponent<ILegpart>().canJump() && isGrounded == true)
             {
                 Debug.Log("Jump: " + isGrounded);
                 player.AddForce(player.transform.up * jumpForce * curLeg.GetComponent<IJump>().jumpMult());
                 isGrounded = false;
-                //Debug.Log(isGrounded);
             }
 
             //pick up nearest item

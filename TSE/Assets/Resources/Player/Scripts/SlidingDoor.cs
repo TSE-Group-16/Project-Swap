@@ -19,6 +19,8 @@ public class slidingDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //check if door is in position and move
         if (transform.position.y < closedPos + openDistance && isOpen == true)
         {
             Vector3 pos = transform.position;
@@ -33,6 +35,7 @@ public class slidingDoor : MonoBehaviour
         }
     }
 
+    //toggle door open/closed
     public void Toggle()
     {
         if (isOpen == false)

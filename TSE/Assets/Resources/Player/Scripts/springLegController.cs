@@ -9,17 +9,6 @@ public class springLegController : MonoBehaviour, IBodypart, ILegpart, IJump
     public float jumpMultFloat = 2.0f;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public string GetBodyType()
     {
         return "leg";

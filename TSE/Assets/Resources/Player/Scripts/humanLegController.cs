@@ -9,17 +9,6 @@ public class humanLegController : MonoBehaviour, IBodypart, ILegpart, IJump
     public float jumpMultFloat = 1.0f;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public string GetBodyType()
     {
         return "leg";
@@ -34,9 +23,4 @@ public class humanLegController : MonoBehaviour, IBodypart, ILegpart, IJump
     {
         return jumpMultFloat;
     }
-
-
-
-    
-
 }

@@ -20,6 +20,7 @@ public class SlidingDoorX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //check if door is in position and move in direction
         if (direction == true)
         {
             if (transform.position.x < closedPos + openDistance && isOpen == true)
@@ -52,22 +53,17 @@ public class SlidingDoorX : MonoBehaviour
         }
     }
 
+    //toggle doors open/closed
     public void Toggle()
     {
         if (isOpen == false)
         {
             isOpen = true;
-            Debug.Log("Open");
         }
         else if (isOpen)
         {
             isOpen = false;
-            Debug.Log("Closed");
         }
     }
 
-    void OnCollisionEnter(Collision collision) 
-    {
-        Debug.Log("Collided with " + collision.collider.gameObject.name);
-    }
 }

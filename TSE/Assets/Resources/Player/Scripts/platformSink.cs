@@ -12,6 +12,7 @@ public class platformSink : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //initialise
         originPoint = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
         lowestPoint = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y-5, gameObject.transform.position.z);
         Physics.IgnoreLayerCollision(9, 9);
@@ -21,6 +22,7 @@ public class platformSink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //check if platform should be sinking and act accordingly
         if (sinking && gameObject.transform.position != lowestPoint) 
         {
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.01f, gameObject.transform.position.z);
@@ -32,6 +34,8 @@ public class platformSink : MonoBehaviour
         }
     }
 
+
+    //check if player is on platform
     void OnCollisionEnter (Collision collision) 
     { 
         if (collision.gameObject.CompareTag("Player")) 

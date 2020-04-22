@@ -5,52 +5,48 @@ using UnityEngine;
 public class levelOneSwitchController : MonoBehaviour
 {
     IEnumerator doorOpener;
+
+    //state bools
     bool activated = false;
     bool finishedOpeningVents = false;
     bool startedOpeningVents = false;
+
+
     float doorHeightMoved = 0.0f;
     float doorSpeed = 0.25f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
     {
+        //check if switch should activate
         if (activated && startedOpeningVents == false)
         {
-            //print("Activated");
             startedOpeningVents = true;
             doorOpener = openDoor(GameObject.FindGameObjectsWithTag("ventDoor"), finishedOpeningVents);
             StartCoroutine(doorOpener);
         }
     }
 
+    //check if player has touched switch
     private void OnTriggerEnter(Collider other)
     {
-        //print(other);
         if ((other.transform.tag == "Player" || other.transform.tag == "bodypart") && activated == false)
             activated = true;
     }
 
+    //door opener
     IEnumerator openDoor(GameObject[] doors, bool finishBool)
     {
         while (!finishBool)
         {
             foreach (GameObject door in doors)
             {
-                //print("Moving Door" + door);
                 door.transform.Translate(0, -(doorSpeed * Time.deltaTime), 0);
-                
-                //print(doorSpeed * Time.deltaTime);
-                //print(doorHeightMoved);
             }
             doorHeightMoved += 0.1f * Time.deltaTime;
             if (doorHeightMoved >= 0.7)
             {
-                //print("Door Done");
                 finishBool = true;
                 StopCoroutine(doorOpener);
             }

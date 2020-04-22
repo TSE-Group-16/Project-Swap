@@ -16,6 +16,7 @@ public class levelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //initialise
         keyTotal = GameObject.FindGameObjectsWithTag("key").Length;
         curKeys = 0;
         print(keyTotal);
@@ -24,9 +25,11 @@ public class levelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //check if player has all keys
         if (keyTotal == curKeys)
             win = true;
 
+        //check if player has completed level
         if (win)
         {
             print("WINNER");
@@ -35,16 +38,12 @@ public class levelController : MonoBehaviour
         }
     }
 
-
+    //door opener
     IEnumerator openDoor(GameObject door, bool finishBool)
     {
         while (!finishBool)
         {
-
-            //print("Moving Door" + door);
             door.transform.Translate(0, -(doorSpeed * Time.deltaTime), 0);
-
-            //print(doorSpeed * Time.deltaTime);
             doorHeightMoved += 0.1f * Time.deltaTime;
             if (doorHeightMoved >= 2.5)
             {

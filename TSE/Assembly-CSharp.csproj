@@ -70,7 +70,6 @@
     <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Util.cs" />
     <Compile Include="Assets\ProCore\ProGrids\MonoBehaviour\pg_IgnoreSnap.cs" />
     <Compile Include="Assets\Resources\Player\Scripts\DoorSwitch.cs" />
-    <Compile Include="Assets\Resources\Player\Scripts\Ladder.cs" />
     <Compile Include="Assets\Resources\Player\Scripts\SlidingDoor.cs" />
     <Compile Include="Assets\Resources\Player\Scripts\SlidingDoorX.cs" />
     <Compile Include="Assets\Resources\Player\Scripts\Tom\pickup.cs" />
@@ -86,6 +85,7 @@
     <Compile Include="Assets\Resources\Player\Scripts\humanLegController.cs" />
     <Compile Include="Assets\Resources\Player\Scripts\ignore.cs" />
     <Compile Include="Assets\Resources\Player\Scripts\keyController.cs" />
+    <Compile Include="Assets\Resources\Player\Scripts\ladder.cs" />
     <Compile Include="Assets\Resources\Player\Scripts\legCheck.cs" />
     <Compile Include="Assets\Resources\Player\Scripts\legController.cs" />
     <Compile Include="Assets\Resources\Player\Scripts\levelController.cs" />

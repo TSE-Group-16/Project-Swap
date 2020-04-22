@@ -10,12 +10,14 @@ public class liftManager : MonoBehaviour
     public GameObject door4;
     public GameObject player;
     public GameObject otherLift;
+
+    //state bools
     bool entered = true;
     bool inside = false;
     bool teleporting = false;
     bool teleported = false;
 
-    // Update is called once per frame
+    //Activate lift func
     void Lift()
     {
         teleporting = true;
@@ -27,7 +29,7 @@ public class liftManager : MonoBehaviour
 
     }
 
-
+    //close all doors
     void toggleAllDoors()
     {
         door1.GetComponent<SlidingDoorX>().Toggle();
@@ -36,6 +38,7 @@ public class liftManager : MonoBehaviour
         door4.GetComponent<SlidingDoorX>().Toggle();
     }
 
+    //timer func until player should teleport and the teleport
     IEnumerator Timer()
     {
         Debug.Log("Timer begun");
@@ -48,6 +51,7 @@ public class liftManager : MonoBehaviour
         toggleAllDoors();
     }
 
+    //check when player enters lift
     void OnTriggerEnter(Collider other)
     {
         if (entered && !inside && !teleported)
@@ -59,6 +63,7 @@ public class liftManager : MonoBehaviour
         }
     }
 
+    //check when player exists lift
     void OnTriggerExit(Collider other)
     {
         entered = true;

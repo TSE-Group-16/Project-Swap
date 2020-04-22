@@ -9,15 +9,12 @@ public class keyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //find all keys
         lc = GameObject.Find("LevelController").GetComponent<levelController>();   
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
+    //collect keys and increase total
     private void OnTriggerEnter(Collider other)
     {
         print(other.tag);

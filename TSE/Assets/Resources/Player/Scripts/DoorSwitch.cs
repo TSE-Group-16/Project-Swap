@@ -14,6 +14,7 @@ public class doorSwitch : MonoBehaviour
 
     void Update()
     {
+        //check if switch should be activated
         if (Input.GetKeyDown(KeyCode.F) && inRange == true)
         {
             door.GetComponent<slidingDoor>().Toggle();
@@ -21,6 +22,7 @@ public class doorSwitch : MonoBehaviour
         }
     }
 
+    //check if player is close to switch
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" || other.tag == "bodypart")

@@ -9,17 +9,16 @@ public class cameraController : MonoBehaviour
     public Rigidbody player;
     public BoxCollider playerBounds;
 
-
+    //cam options
     public float turnSpeed;
     public bool isFrozen = false;
-
     float cameraMagnitude;
     Vector3 cameraPosLocal;
-    
     [Range(0.0f, 5.0f)]
     public float camDistY;
     [Range(0.0f, 5.0f)]
     public float camDistZ;
+
     IEnumerator rotator;
 
     Camera cam;
@@ -52,9 +51,6 @@ public class cameraController : MonoBehaviour
             //rotate the camera's origin point
             cameraOrigin.transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X"), 0), Space.World);
             cameraOrigin.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), 0.0f, 0));
-
-
-
             if (cameraOrigin.transform.eulerAngles.x < 300.0f && cameraOrigin.transform.eulerAngles.x > 180.0f)
             {
 
