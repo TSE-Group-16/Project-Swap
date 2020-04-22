@@ -11,7 +11,7 @@
 /[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
-!/[Aa]ssets/**/*.meta
+
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -43,10 +43,7 @@ ExportedObj/
 *.opendb
 *.VC.db
 
-# Unity3D generated meta files
-*.pidb.meta
-*.pdb.meta
-*.mdb.meta
+
 
 # Unity3D generated file on crash reports
 sysinfo.txt
@@ -58,9 +55,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-*.meta
-*.meta
-TSE/Assets/Standard Assets/Level Meshes/Tutorial_Prototype.mtl.meta
+
 TSE/Temp/UnityLockfile
 TSE/Library/Artifacts/27/27d45d271b90f0122f5cf05a179d819f
 TSE/Library/Artifacts/29/29c5ed700b3a8f4873fb2a6489b0b4c5
