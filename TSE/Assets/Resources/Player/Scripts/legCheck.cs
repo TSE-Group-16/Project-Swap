@@ -21,6 +21,7 @@ public class legCheck : MonoBehaviour
 
     void OnTriggerEnter()
     {
+       //Show leg tutorial when trigger is entered
        TC.ShowLegsHelp();
     }
 }

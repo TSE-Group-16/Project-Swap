@@ -15,6 +15,7 @@ public class tutorialController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Disable all tutorial UI
         grateHelp.SetActive(false);
         ladderHelp.SetActive(false);
         moveHelp.SetActive(false);
@@ -22,6 +23,8 @@ public class tutorialController : MonoBehaviour
         ventGrateHelp.SetActive(false);
         finalDoorHelp.SetActive(false);
         legsHelp.SetActive(false);
+
+        //Start level with move tutorial
         ShowMoveHelp();
     }
 
@@ -30,6 +33,8 @@ public class tutorialController : MonoBehaviour
     {
 
     }
+
+    //All functions below enable the specified tutorial and then call the hide after 5 seconds function
 
     public void ShowMoveHelp()
     {
@@ -77,11 +82,13 @@ public class tutorialController : MonoBehaviour
         StartCoroutine(Hide5Seconds());
     }
 
+
     IEnumerator Hide5Seconds()
     {
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(5);
 
+        //After 5 seconds hide all tutorial UI
         grateHelp.SetActive(false);
         ladderHelp.SetActive(false);
         moveHelp.SetActive(false);

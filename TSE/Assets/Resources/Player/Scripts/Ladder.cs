@@ -26,6 +26,7 @@ public class ladder : MonoBehaviour
         print("Ladder: " + Other.transform.tag);
         if (Other.tag == "Player" || Other.tag == "bodypart")
         {
+            //The player is told it is climbing if they have both arms and pressing W when touching the ladder
             if (PC.hasLArm == true && PC.hasRArm == true && Input.GetKey(KeyCode.W))
             {
                 PC.isClimbing = true;
@@ -39,6 +40,7 @@ public class ladder : MonoBehaviour
 
     void OnTriggerEnter()
     {
+        //Show ladder tutorial when player doesn't have both arms
         if (PC.hasLArm == false || PC.hasRArm == false)
         {
             TC.ShowLadderHelp();
