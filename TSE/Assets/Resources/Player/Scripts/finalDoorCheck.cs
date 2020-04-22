@@ -24,6 +24,7 @@ public class finalDoorCheck : MonoBehaviour
 
     void OnTriggerEnter()
     {
+        //Show final door tutorial help if the player does not have the key yet
         if (LC.curKeys != 1)
         {
             TC.ShowFinalDoorHelp();

@@ -19,6 +19,7 @@ public class levelEnd : MonoBehaviour
     {
         if (other.tag == "Player" || other.tag == "bodypart")
         {
+            //Load level 1 when the player reaches this trigger
             UnityEngine.SceneManagement.SceneManager.LoadScene(2);
         }
     }

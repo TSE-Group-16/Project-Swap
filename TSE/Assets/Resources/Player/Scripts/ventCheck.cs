@@ -24,6 +24,7 @@ public class ventCheck : MonoBehaviour
 
     void OnTriggerEnter()
     {
+        //Show vent tutorial when player enters trigger with legs
         if (PC.getCurLeg() != null)
         {
             TC.ShowVentHelp();
