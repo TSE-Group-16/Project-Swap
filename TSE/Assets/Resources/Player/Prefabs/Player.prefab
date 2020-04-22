@@ -97,6 +97,7 @@ MonoBehaviour:
   hasHead: 0
   isGrounded: 0
   isClimbing: 0
+  inLift: 0
   nearItems: []
   radialMenu: {fileID: 0}
   cameraObj: {fileID: 0}
@@ -427,6 +428,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2416733968201007103, guid: cd8968420c7a1064d966a826e78d6067,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebc3d93c6a830d44bbf84509ada69edb, type: 2}
     - target: {fileID: -927199367670048503, guid: cd8968420c7a1064d966a826e78d6067,
         type: 3}
       propertyPath: m_Name
